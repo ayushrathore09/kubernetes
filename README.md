@@ -9,3 +9,8 @@ Create (P.V) from storage pool and then claim it called PVC
 to port forwarding after creating a service:
 
 kubectl port-forward service/"service-name" -n "namespace" 8000:8000 --address=0.0.0.0
+
+to install the nginx-ingress controller run this yml file:
+kubectl apply -f http://kind.sigs.k8s.io/examples/ingress/deployment-ingress-nginx.yaml
+your namespace and service will appear of nginx-ingress.
+now port forward the port of nginx ingress.
