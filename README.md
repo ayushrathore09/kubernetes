@@ -8,4 +8,4 @@ Create (P.V) from storage pool and then claim it called PVC
 
 to port forwarding after creating a service:
 
-kubectl port-forward service/"service-name" 8000:8000 --address=0.0.0.0
+kubectl port-forward service/"service-name" -n "namespace" 8000:8000 --address=0.0.0.0
