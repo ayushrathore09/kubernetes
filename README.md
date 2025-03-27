@@ -14,3 +14,20 @@ to install the nginx-ingress controller run this yml file:
 kubectl apply -f http://kind.sigs.k8s.io/examples/ingress/deployment-ingress-nginx.yaml
 your namespace and service will appear of nginx-ingress.
 now port forward the port of nginx ingress.
+
+to install the metric server:
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+Edit the Metrics Server Deployment
+kubectl -n kube-system edit deployment metrics-server
+
+Add the security bypass to deployment under container.args
+- --kubelet-insecure-tls
+- --kubelet-preferred-address-types=InternalIP,Hostname,ExternalIP
+
+Restart the deployment
+kubectl -n kube-system rollout restart deployment metrics-server
+
+Verify if the metrics server is running
+kubectl get pods -n kube-system
+kubectl top nodes
