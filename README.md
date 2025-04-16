@@ -31,4 +31,3 @@ kubectl -n kube-system rollout restart deployment metrics-server
 Verify if the metrics server is running
 kubectl get pods -n kube-system
 kubectl top nodes
-................
